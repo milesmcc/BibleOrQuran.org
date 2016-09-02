@@ -1,0 +1,42 @@
+body {
+}
+
+a:link {color: white;}
+a:visited {color: white;}
+a:active {color: white;}
+
+.nav-items {
+  text-align: right;
+  content: right;
+  float: right;
+}
+
+#interface, #biblequraninterface, #right, #wrong {
+  display: none;
+}
+@media screen and (min-width: 800px) {
+  #interface, #biblequraninterface, #welcome {
+    max-height: 65px;
+  }
+
+  #scoreboard {
+    width: 100%;
+  }
+}
+
+.blockquote{
+  max-width: inherit;
+  overflow: auto;
+  display: block;
+}
+
+
+
+#tip, #right, #wrong {
+  height: 65px;
+  text-align: center;
+}
+
+.mid {
+  vertical-align: middle;
+}

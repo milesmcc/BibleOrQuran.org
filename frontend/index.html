@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65059844-4', 'auto');
+  ga('send', 'pageview');
+
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Teaching the true nature of both texts. See a random passage from either the Bible or the Qur'an and try to choose which religious text it came from.">
+  <meta name="author" content="Miles McCain">
+  <title>
+    Bible or Qur'an?
+  </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+
+  </script>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="css/dark.css">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</script>
+<link href='https://fonts.googleapis.com/css?family=Assistant:400,200,700'
+rel='stylesheet' type='text/css'>
+
+<link href="css/index.css" rel="stylesheet">
+<script src="js/index.js"></script>
+</head>
+
+<body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <br>
+  <div class="container">
+    <strong>
+      Bible Or Qur'an
+    </strong>
+    <span class="nav-items">
+      <a href="http://md-c.com">MD-C</a>
+      /
+      <a href="#sources">Sources</a>
+      /
+      <a href="#mission">Mission</a>
+    </span>
+    <hr>
+    <br><br>
+    <div id="worker" class="row">
+      <div class="col-lg-7 panel panel-default">
+        <div class="">
+          <div class="panel-body">
+            <div class="row" id="welcome">
+              <button id="start-button" class="btn btn-block btn-primary btn-lg" onclick="start_load_process()">Start</button>
+            </div>
+            <div class="row" id="biblequraninterface">
+              <div class="col-sm-6">
+                <button class="btn btn-success btn-block btn-lg biblequran" onclick="answer(true)">Bible</button>
+              </div>
+              <div class="col-sm-6">
+                <button class="btn btn-info btn-block btn-lg biblequran" onclick="answer(false)">Qur'an</button>
+              </div>
+            </div>
+            <div class="row" id="interface">
+              <div class="col-sm-6">
+                <button class="btn btn-block btn-primary btn-lg" id="continue" onclick="start_load_process()">Continue</button>
+              </div>
+              <div class="col-sm-6">
+                <div class="answer alert alert-success" id="right">
+                  <span class="mid"><strong>Correct!</strong> <span class="verse-source">Source</span></span>
+                </div>
+                <div class="answer alert alert-danger" id="wrong">
+                  <span class="mid"><strong>Wrong!</strong> <span class="verse-source">Source</span></span>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <h4 id="passage">
+              Here you will see a verse from either the Bible or the Qur'an. Can you guess which?
+            </h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-1"></div>
+      <div class="col-lg-4 scoreboard panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-6">
+              <center><strong>Correct:</strong> <span id="numcorrect">0</span></center>
+            </div>
+            <div class="col-sm-6">
+              <center><strong>Incorrect:</strong> <span id="numincorrect">0</span></center>
+            </div>
+          </div>
+          <hr>
+          <center><h1><span class="score">0</span></h1></center>
+          <center><i>score</i></center>
+          <hr>
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" id="progress-correct" style="width: 0%">
+              <span class="sr-only">Correct</span>
+            </div>
+            <div class="progress-bar progress-bar-danger" id="progress-incorrect" style="width: 0%">
+              <span class="sr-only">Incorrect</span>
+            </div>
+          </div>
+          <hr>
+          <center><a id="twitter-button"
+  href="https://twitter.com/intent/tweet?text=Loving%20BibleOrQuran.org!%20Check%20it%20out.%20#BibleOrQuran">
+Tweet Score</a> <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse">Share to Facebook</a></div></div>
+          </center>
+      </div>
+    </div>
+    <hr>
+    <br>
+    <div class="row">
+      <div class="col-md-8">
+        <h3>
+          Mission
+        </h3>
+        <p>
+          The mission of BibleOrQuran is to educate people about the true nature
+          and content of the Bible and Qur'an. False statements such as "81% of the
+          Qur'an is about killing infidels!" and "The bible teaches only peace!"
+          are commonly thrown around with little evidence to back them up. Despite
+          their lack of credibility, however, they still continue to polarize and
+          cause irrational hate and fear. We hope that by showing random Bible or
+          Qur'an passages, we show how similar the two texts are and allay many of
+          the fears of Islam and its teachings.&nbsp;
+        </p>
+      </div>
+      <div class="col-md-4">
+        <h3>
+          Sources
+        </h3>
+        <p>
+          The source for the Bible passages is <a href="http://labs.bible.org/api_web_service">Bible.org's API</a>.
+        </p>
+        <div>
+          The source for the Qur'an passages is <a href="http://quranapi.azurewebsites.net/">Azure's Quran Web API.</a>
+        </div>
+        <hr>
+        <label><input type="checkbox" id="send_stats" value="true" checked> Send anonymous answer statistics to BibleOrQuran</label>
+      </div>
+    </div>
+    <footer>
+      <hr>
+      © BibleOrQuran.org. Bible Or Qur'an is an MD-C project. <span class="pull-right">Made by Miles
+      McCain.</span><!-- hi stella --><br><br>
+    </footer>
+  </div>
+</body>
+</html>
